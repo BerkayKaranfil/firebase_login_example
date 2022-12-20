@@ -16,7 +16,9 @@ class LoginPage extends GetView<LoginController> {
       body: Center(
         child: Container(
           height: 65.h,
-          width: 85.w,
+        width: 85.w,
+        //  height: 85.h,
+         // width: 85.w,
           decoration: BoxDecoration(
               color: Colors.blue.withOpacity(0.5),
               borderRadius: BorderRadius.circular(15),
@@ -81,11 +83,13 @@ class LoginPage extends GetView<LoginController> {
                 ),
                 ElevatedButton(
                   onPressed: () {},
-                  child: Text("Login"),
+                  child: Text("Login",style: TextStyle(fontSize: 2.h),),
                   style: ElevatedButton.styleFrom(
-                      minimumSize: Size(40.w, 5.h),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                      minimumSize: Size(60.w, 5.h),
                       backgroundColor: Colors.greenAccent.withOpacity(0.5),
-                      side: BorderSide(color: Colors.white, width: 0.5.w)),
+                      
+                      side: BorderSide(color: Colors.white, width: 0.5.w,style: BorderStyle.none)),
                 ),
                 SizedBox(
                   height: 3.h,
@@ -100,12 +104,12 @@ class LoginPage extends GetView<LoginController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Don't have an account?"),
+                    Text("Don't have an account?", style: TextStyle(fontSize: 2.h),),
                     TextButton(
                         onPressed: () {},
                         child: Text(
                           "Register",
-                          style: TextStyle(color: Colors.indigo),
+                          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 2.5.h, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.solid),
                         ))
                   ],
                 )

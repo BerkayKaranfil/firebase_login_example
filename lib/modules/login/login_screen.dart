@@ -1,4 +1,5 @@
 import 'package:firebase_login_example/modules/login/login_controller.dart';
+import 'package:firebase_login_example/modules/register/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -209,7 +210,9 @@ class LoginPage extends GetView<LoginController> {
                       style: TextStyle(fontSize: 2.h),
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(()=>RegisterScreen());
+                        },
                         child: Text(
                           "Register",
                           style: TextStyle(

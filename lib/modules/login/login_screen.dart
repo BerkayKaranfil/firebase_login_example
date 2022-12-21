@@ -13,8 +13,8 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     // backgroundColor: Color.fromARGB(255, 170, 169, 245),
-     backgroundColor: Colors.black,
+      // backgroundColor: Color.fromARGB(255, 170, 169, 245),
+      backgroundColor: Colors.black,
       resizeToAvoidBottomInset: false,
       body: Center(
         child: Container(
@@ -67,6 +67,14 @@ class LoginPage extends GetView<LoginController> {
                       size: 4.h,
                     ),
                   ),
+                  /* autovalidateMode: AutovalidateMode.always,
+                  validator: (value) {
+                    if (!GetUtils.isEmail(value!)) {
+                      return "Email isn't valid";
+                    } else {
+                      return null;
+                    }
+                  }, */
                 ),
                 SizedBox(
                   width: double.infinity,
@@ -177,14 +185,6 @@ class LoginPage extends GetView<LoginController> {
                 SizedBox(
                   height: 3.h,
                 ),
-
-                /* ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Register"),
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: Size(40.w, 5.h),
-                        backgroundColor: Colors.blueGrey.withOpacity(0.5),
-                        side: BorderSide(color: Colors.white, width: 0.5.w))), */
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -194,8 +194,9 @@ class LoginPage extends GetView<LoginController> {
                     ),
                     TextButton(
                         onPressed: () {
-                          Get.to(() => RegisterScreen(), transition: Transition.leftToRightWithFade);
-                        // Get.toNamed(Routes.REGISTER);
+                          Get.to(() => RegisterScreen(),
+                              transition: Transition.leftToRightWithFade);
+                          // Get.toNamed(Routes.REGISTER);
                         },
                         child: Text(
                           "Register",

@@ -18,6 +18,7 @@ class RegisterScreen extends GetView<RegisterController> {
       
       body: Center(
         child: Container(
+          margin: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom > 0 ? 20.h : 0),
           height: 70.h,
           width: 85.w,
           decoration: BoxDecoration(

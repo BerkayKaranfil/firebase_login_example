@@ -81,6 +81,7 @@ class RegisterScreen extends GetView<RegisterController> {
                 TextFormField(
                   cursorColor: Colors.black,
                   cursorHeight: 3.h,
+                 // obscureText: controller.passwordVisibility,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
                       filled: true,
@@ -94,10 +95,14 @@ class RegisterScreen extends GetView<RegisterController> {
                         color: Colors.black54,
                         size: 4.h,
                       ),
-                      suffixIcon: Icon(
+                      suffixIcon:/* IconButton(onPressed: () {
+                        controller.chancePasswordVisibility();
+                      }, icon: controller.chanceVisibility()) */
+                        Icon(
                         Icons.remove_red_eye,
                         color: Colors.black45,
-                      )),
+                      ) 
+                      ),
                 ),
                 SizedBox(
                   height: 15.h,

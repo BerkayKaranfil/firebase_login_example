@@ -1,4 +1,4 @@
-import 'package:firebase_login_example/modules/register/register_controller.dart';
+ import 'package:firebase_login_example/modules/register/register_controller.dart';
 import 'package:get/get.dart';
 
 class RegisterBinding implements Bindings{
@@ -7,4 +7,4 @@ class RegisterBinding implements Bindings{
     Get.put(RegisterController());
    
   }
-}
+} 

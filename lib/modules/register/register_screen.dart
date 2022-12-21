@@ -1,9 +1,8 @@
-import 'package:firebase_login_example/app_pages.dart';
+
 import 'package:firebase_login_example/modules/login/login_screen.dart';
 import 'package:firebase_login_example/modules/register/register_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -15,10 +14,10 @@ class RegisterScreen extends GetView<RegisterController> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
-      
       body: Center(
         child: Container(
-          margin: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom > 0 ? 20.h : 0),
+          margin: EdgeInsets.only(
+              bottom: MediaQuery.of(context).viewInsets.bottom > 0 ? 20.h : 0),
           height: 70.h,
           width: 85.w,
           decoration: BoxDecoration(
@@ -34,7 +33,13 @@ class RegisterScreen extends GetView<RegisterController> {
             padding: EdgeInsets.all(5.w),
             child: Column(
               children: [
-                Text("Welcome",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 5.h),),
+                Text(
+                  "Welcome",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 5.h),
+                ),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -59,7 +64,8 @@ class RegisterScreen extends GetView<RegisterController> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20), borderSide: BorderSide(width: 0.5.w)),
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(width: 0.5.w)),
                     prefixIcon: Icon(
                       Icons.email,
                       color: Colors.black54,
@@ -78,39 +84,43 @@ class RegisterScreen extends GetView<RegisterController> {
                     ),
                   ),
                 ),
+                Obx(() => 
                 TextFormField(
                   cursorColor: Colors.black,
                   cursorHeight: 3.h,
-                 // obscureText: controller.passwordVisibility,
+                  obscureText: controller.passwordVisibility.value,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Color.fromARGB(255, 240, 231, 231),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20), borderSide: BorderSide(width: 0.5.w)),
-                      prefixIcon: Icon(
-                        Icons.lock,
-                        color: Colors.black54,
-                        size: 4.h,
-                      ),
-                      suffixIcon:/* IconButton(onPressed: () {
+                    filled: true,
+                    fillColor: Color.fromARGB(255, 240, 231, 231),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(width: 0.5.w)),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: Colors.black54,
+                      size: 4.h,
+                    ),
+                    suffixIcon: 
+                    IconButton(
+                      onPressed: () {
                         controller.chancePasswordVisibility();
-                      }, icon: controller.chanceVisibility()) */
-                        Icon(
-                        Icons.remove_red_eye,
-                        color: Colors.black45,
-                      ) 
-                      ),
-                ),
+                      },
+                      icon: Icon(controller.chanceVisibilityIcon(), color: Colors.black45,)
+                       
+                    ),
+                  ),
+                ),),
                 SizedBox(
                   height: 15.h,
                 ),
                 ElevatedButton(
                   onPressed: () {
                     //Get.toNamed(Routes.LOGIN);
-                    Get.to(()=>LoginPage(),transition: Transition.rightToLeftWithFade);
+                    Get.to(() => LoginPage(),
+                        transition: Transition.rightToLeftWithFade);
                   },
                   child: Text(
                     "Register",

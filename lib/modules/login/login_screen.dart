@@ -1,6 +1,6 @@
-import 'package:firebase_login_example/app_pages.dart';
 import 'package:firebase_login_example/modules/login/login_controller.dart';
 import 'package:firebase_login_example/modules/register/register_screen.dart';
+import 'package:firebase_login_example/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -19,8 +19,7 @@ class LoginPage extends GetView<LoginController> {
       body: Center(
         child: Container(
           margin: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom > 0 ? 20.h : 0
-          ),
+              bottom: MediaQuery.of(context).viewInsets.bottom > 0 ? 20.h : 0),
           height: 70.h,
           width: 85.w,
           decoration: BoxDecoration(
@@ -90,11 +89,13 @@ class LoginPage extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                TextFormField(
-                  cursorColor: Colors.black,
-                  cursorHeight: 3.h,
-                  textAlignVertical: TextAlignVertical.center,
-                  decoration: InputDecoration(
+                Obx(
+                  () => TextFormField(
+                    cursorColor: Colors.black,
+                    cursorHeight: 3.h,
+                    textAlignVertical: TextAlignVertical.center,
+                    obscureText: controller.loginpasswordVisibility.value,
+                    decoration: InputDecoration(
                       filled: true,
                       fillColor: Color.fromARGB(255, 240, 231, 231),
                       enabledBorder: OutlineInputBorder(
@@ -107,10 +108,11 @@ class LoginPage extends GetView<LoginController> {
                         color: Colors.black54,
                         size: 4.h,
                       ),
-                      suffixIcon: Icon(
-                        Icons.remove_red_eye,
-                        color: Colors.black45,
-                      )),
+                      suffixIcon: IconButton(onPressed: () {
+                        controller.loginPasswordVisibility();
+                      }, icon: Icon(controller.loginVisibilityIcon(), color: Colors.black45,))
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 8.h,
@@ -197,9 +199,7 @@ class LoginPage extends GetView<LoginController> {
                     ),
                     TextButton(
                         onPressed: () {
-                          Get.to(() => RegisterScreen(),
-                              transition: Transition.leftToRightWithFade);
-                          // Get.toNamed(Routes.REGISTER);
+                          Get.toNamed(Routes.REGISTER);
                         },
                         child: Text(
                           "Register",

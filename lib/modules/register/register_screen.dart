@@ -1,3 +1,5 @@
+import 'package:firebase_login_example/app_pages.dart';
+import 'package:firebase_login_example/modules/login/login_screen.dart';
 import 'package:firebase_login_example/modules/register/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -11,8 +13,9 @@ class RegisterScreen extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
-      appBar: AppBar(),
+      
       body: Center(
         child: Container(
           height: 70.h,
@@ -46,18 +49,19 @@ class RegisterScreen extends GetView<RegisterController> {
                   ),
                 ),
                 TextFormField(
-                  cursorColor: Colors.white,
+                  cursorColor: Colors.black,
+                  cursorHeight: 3.h,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.grey,
+                    fillColor: Color.fromARGB(255, 240, 231, 231),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(20), borderSide: BorderSide(width: 0.5.w)),
                     prefixIcon: Icon(
                       Icons.email,
-                      color: Colors.white,
+                      color: Colors.black54,
                       size: 4.h,
                     ),
                   ),
@@ -74,18 +78,19 @@ class RegisterScreen extends GetView<RegisterController> {
                   ),
                 ),
                 TextFormField(
-                  cursorColor: Colors.white,
+                  cursorColor: Colors.black,
+                  cursorHeight: 3.h,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.grey,
+                      fillColor: Color.fromARGB(255, 240, 231, 231),
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                          borderRadius: BorderRadius.circular(20), borderSide: BorderSide(width: 0.5.w)),
                       prefixIcon: Icon(
                         Icons.lock,
-                        color: Colors.white,
+                        color: Colors.black54,
                         size: 4.h,
                       ),
                       suffixIcon: Icon(
@@ -97,7 +102,10 @@ class RegisterScreen extends GetView<RegisterController> {
                   height: 15.h,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    //Get.toNamed(Routes.LOGIN);
+                    Get.to(()=>LoginPage(),transition: Transition.rightToLeftWithFade);
+                  },
                   child: Text(
                     "Register",
                     style: TextStyle(fontSize: 2.h),

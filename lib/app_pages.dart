@@ -15,7 +15,10 @@ class AppPages {
 
   static final routes = [
     GetPage(
-        name: Routes.LOGIN, page: () => LoginPage(), binding: LoginBinding()),
+      name: Routes.LOGIN,
+      page: () => LoginPage(),
+      binding: LoginBinding(),
+    ),
     GetPage(
         name: Routes.SPLASH,
         page: () => SplashScreen(),

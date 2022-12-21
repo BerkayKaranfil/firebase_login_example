@@ -1,3 +1,4 @@
+import 'package:firebase_login_example/app_pages.dart';
 import 'package:firebase_login_example/modules/login/login_controller.dart';
 import 'package:firebase_login_example/modules/register/register_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,8 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+     // backgroundColor: Color.fromARGB(255, 170, 169, 245),
+     backgroundColor: Colors.black,
       resizeToAvoidBottomInset: false,
       body: Center(
         child: Container(
@@ -34,22 +36,6 @@ class LoginPage extends GetView<LoginController> {
                 SizedBox(
                   height: 2.h,
                 ),
-                /* TextFormField(
-                  textAlignVertical: TextAlignVertical.center,
-                  decoration: InputDecoration(
-                      //enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white)),
-                      prefixIcon: Icon(
-                        Icons.person,
-                        color: Colors.white,
-                      ),
-                      hintText: "Name",
-                      hintStyle: TextStyle(color: Colors.white)),
-                ),
-                SizedBox(
-                  height: 3.h,
-                ), */
                 SizedBox(
                   width: double.infinity,
                   child: Padding(
@@ -62,24 +48,24 @@ class LoginPage extends GetView<LoginController> {
                   ),
                 ),
                 TextFormField(
-                  cursorColor: Colors.white,
+                  cursorColor: Colors.black,
+                  cursorHeight: 3.h,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.grey,
-                    enabledBorder:
-                        // UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-                        OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                    focusedBorder: OutlineInputBorder(
+                    fillColor: Color.fromARGB(255, 240, 231, 231),
+                    enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          width: 0.5.w,
+                        )),
                     prefixIcon: Icon(
                       Icons.email,
-                      color: Colors.white,
+                      color: Colors.black54,
                       size: 4.h,
                     ),
-                    // hintText: "Email",
-                    // hintStyle: TextStyle(color: Colors.white)
                   ),
                 ),
                 SizedBox(
@@ -94,29 +80,26 @@ class LoginPage extends GetView<LoginController> {
                   ),
                 ),
                 TextFormField(
-                  cursorColor: Colors.white,
+                  cursorColor: Colors.black,
+                  cursorHeight: 3.h,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.grey,
-                      enabledBorder:
-                          //UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-                          OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20)),
-                      focusedBorder: OutlineInputBorder(
+                      fillColor: Color.fromARGB(255, 240, 231, 231),
+                      enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(width: 0.5.w)),
                       prefixIcon: Icon(
                         Icons.lock,
-                        color: Colors.white,
+                        color: Colors.black54,
                         size: 4.h,
                       ),
                       suffixIcon: Icon(
                         Icons.remove_red_eye,
                         color: Colors.black45,
-                      )
-                      // hintText: "Password",
-                      // hintStyle: TextStyle(color: Colors.white)
-                      ),
+                      )),
                 ),
                 SizedBox(
                   height: 8.h,
@@ -211,12 +194,13 @@ class LoginPage extends GetView<LoginController> {
                     ),
                     TextButton(
                         onPressed: () {
-                          Get.to(()=>RegisterScreen());
+                          Get.to(() => RegisterScreen(), transition: Transition.leftToRightWithFade);
+                        // Get.toNamed(Routes.REGISTER);
                         },
                         child: Text(
                           "Register",
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 2.5.h,
                               decoration: TextDecoration.underline,

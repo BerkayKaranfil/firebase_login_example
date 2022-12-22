@@ -1,4 +1,3 @@
-
 import 'package:firebase_login_example/modules/login/login_screen.dart';
 import 'package:firebase_login_example/modules/register/register_controller.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +54,7 @@ class RegisterScreen extends GetView<RegisterController> {
                   ),
                 ),
                 TextFormField(
-                  
+                  controller: controller.emailControl,
                   cursorColor: Colors.black,
                   cursorHeight: 3.h,
                   textAlignVertical: TextAlignVertical.center,
@@ -85,43 +84,48 @@ class RegisterScreen extends GetView<RegisterController> {
                     ),
                   ),
                 ),
-                Obx(() => 
-                TextFormField(
-                  cursorColor: Colors.black,
-                  cursorHeight: 3.h,
-                  obscureText: controller.passwordVisibility.value,
-                  textAlignVertical: TextAlignVertical.center,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Color.fromARGB(255, 240, 231, 231),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(width: 0.5.w)),
-                    prefixIcon: Icon(
-                      Icons.lock,
-                      color: Colors.black54,
-                      size: 4.h,
-                    ),
-                    suffixIcon: 
-                    IconButton(
-                      onPressed: () {
-                        controller.chancePasswordVisibility();
-                      },
-                      icon: Icon(controller.chanceVisibilityIcon(), color: Colors.black45,)
-                       
+                Obx(
+                  () => TextFormField(
+                    controller: controller.passwordControl,
+                    cursorColor: Colors.black,
+                    cursorHeight: 3.h,
+                    obscureText: controller.passwordVisibility.value,
+                    textAlignVertical: TextAlignVertical.center,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Color.fromARGB(255, 240, 231, 231),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(width: 0.5.w)),
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.black54,
+                        size: 4.h,
+                      ),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            controller.chancePasswordVisibility();
+                          },
+                          icon: Icon(
+                            controller.chanceVisibilityIcon(),
+                            color: Colors.black45,
+                          )),
                     ),
                   ),
-                ),),
+                ),
                 SizedBox(
                   height: 15.h,
                 ),
                 ElevatedButton(
                   onPressed: () {
+                    controller.auth.createUser(
+                        controller.emailControl.text, controller.passwordControl.text);
+                    //controller.userEmail = controller.emailControl.text; Bu mantığı kullanarak if else oluşturup eğer boşsa get.dialog döndürebiliriz.
                     //Get.toNamed(Routes.LOGIN);
-                    Get.to(() => LoginPage(),
-                        transition: Transition.rightToLeftWithFade);
+                     Get.to(() => LoginPage(),
+                        transition: Transition.rightToLeftWithFade); 
                   },
                   child: Text(
                     "Register",

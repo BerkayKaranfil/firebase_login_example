@@ -3,22 +3,24 @@ import 'package:get/get.dart';
 
 class AuthService extends GetxService {
   Future<AuthService> init() async{
-    createUser();
+   // createUser();
     return this;
   }
 
 
-  createUser() async {
+  createUser(girilenEmail,girilenPassword) async {
     try {
   final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    email: "berkay@email.com",
-    password: "12345678",
-  );
+    email: girilenEmail,
+    password: girilenPassword,
+  ).whenComplete(() => Get.snackbar("Başarılı", "Kullanıcı oluşturuldu."));
 } on FirebaseAuthException catch (e) {
   if (e.code == 'weak-password') {
-    print('The password provided is too weak.');
+   // print('The password provided is too weak.');
+   return Get.defaultDialog(title: "The password provided is too weak.");
   } else if (e.code == 'email-already-in-use') {
-    print('The account already exists for that email.');
+    //print('The account already exists for that email.');
+    return Get.defaultDialog(title: "The account already exists for that email.");
   }
 } catch (e) {
   print(e);

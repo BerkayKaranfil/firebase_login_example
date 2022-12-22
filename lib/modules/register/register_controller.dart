@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 class RegisterController extends GetxController {
    RxBool passwordVisibility = true.obs;
    AuthService auth = AuthService();
-   String? userEmail;
-   String? userPassword;
+   //String? userEmail; Kullanıcının girdiği email'i bu değişkene atayıp kullanıcı değer girmiş mi? girmemiş mi? gibi if else kontrolü kullanılabilir.(Temiz kod için)
+   //String? userPassword;
    TextEditingController emailControl = TextEditingController();
    TextEditingController passwordControl = TextEditingController();
 

@@ -1,3 +1,4 @@
+import 'package:firebase_login_example/modules/home/home_screen.dart';
 import 'package:firebase_login_example/modules/login/login_controller.dart';
 import 'package:firebase_login_example/modules/register/register_screen.dart';
 import 'package:firebase_login_example/routes/routes.dart';
@@ -50,6 +51,7 @@ class LoginPage extends GetView<LoginController> {
                   ),
                 ),
                 TextFormField(
+                  controller: controller.emailControl,
                   cursorColor: Colors.black,
                   cursorHeight: 3.h,
                   textAlignVertical: TextAlignVertical.center,
@@ -91,6 +93,7 @@ class LoginPage extends GetView<LoginController> {
                 ),
                 Obx(
                   () => TextFormField(
+                    controller: controller.passwordControl,
                     cursorColor: Colors.black,
                     cursorHeight: 3.h,
                     textAlignVertical: TextAlignVertical.center,
@@ -118,7 +121,11 @@ class LoginPage extends GetView<LoginController> {
                   height: 8.h,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.auth.signInUser(controller.emailControl.text, controller.passwordControl.text);
+                    Get.to(() => HomeScreen(),
+                        transition: Transition.rightToLeftWithFade);
+                  },
                   child: Text(
                     "Sign in",
                     style: TextStyle(fontSize: 2.h),

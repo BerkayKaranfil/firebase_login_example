@@ -55,6 +55,7 @@ class RegisterScreen extends GetView<RegisterController> {
                   ),
                 ),
                 TextFormField(
+                  
                   cursorColor: Colors.black,
                   cursorHeight: 3.h,
                   textAlignVertical: TextAlignVertical.center,

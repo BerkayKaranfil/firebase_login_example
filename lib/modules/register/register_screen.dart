@@ -124,8 +124,8 @@ class RegisterScreen extends GetView<RegisterController> {
                         controller.emailControl.text, controller.passwordControl.text);
                     //controller.userEmail = controller.emailControl.text; Bu mantığı kullanarak if else oluşturup eğer boşsa get.dialog döndürebiliriz.
                     //Get.toNamed(Routes.LOGIN);
-                     Get.to(() => LoginPage(),
-                        transition: Transition.rightToLeftWithFade); 
+                     /* Get.to(() => LoginPage(),
+                        transition: Transition.rightToLeftWithFade);  */
                   },
                   child: Text(
                     "Register",

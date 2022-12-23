@@ -66,72 +66,82 @@ class HomeScreen extends StatelessWidget {
                 height: 2.h,
               ),
               SizedBox(
-                height: 70.h,
+                height: 75.h,
                 child: ListView.builder(
                   itemCount: 3,
                   itemBuilder: (context, index) {
                     return Container(
                       margin: EdgeInsets.only(bottom: 3.h),
-                      height: 27.h,
+                      height: 30.h,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            left: 4.w, top: 2.h, bottom: 2.h, right: 6.w),
-                        child: Column(
-                          children: [
-                            Text(
-                              "Please Start Writing Better Git Commits",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 2.h),
-                            ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Row(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: 4.w, top: 2.h, right: 6.w),
+                            child: Column(
                               children: [
-                                CircleAvatar(
-                                  radius: 2.h,
+                                Text(
+                                  "Please Start Writing Better Git Commits",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 2.h),
                                 ),
                                 SizedBox(
-                                  width: 2.w,
+                                  height: 1.h,
                                 ),
-                                Text("Kullanıcının ismi"),
+                                Row(
+                                  children: [
+                                    CircleAvatar(
+                                      radius: 2.h,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("Kullanıcının ismi"),
+                                    SizedBox(
+                                      width: 10.w,
+                                    ),
+                                    Text("Jul 29, 2022"),
+                                  ],
+                                ),
+                                Divider(
+                                  thickness: 0.5.w,
+                                  color: Color(0xffC8C8C8),
+                                ),
                                 SizedBox(
-                                  width: 10.w,
+                                  height: 0.5.h,
                                 ),
-                                Text("Jul 29, 2022"),
+                                Container(
+                                  height: 10.h,
+                                  child: Text(
+                                      "Buraya kullanıcının yazdığı yazı gelecek.Buraya kullanıcının yazdığı yazı gelecek.Buraya kullanıcının yazdığı yazı gelecek.Buraya kullanıcının yazdığı yazı gelecek.Buraya kullanıcının yazdığı yazı gelecek.Buraya kullanıcının yazdığı yazı gelecek."),
+                                ),
+                                SizedBox(
+                                  height: 2.h,
+                                ),
                               ],
                             ),
-                            Divider(
-                              thickness: 0.5.w,
-                              color: Color(0xffC8C8C8),
-                            ),
-                            SizedBox(
-                              height: 0.5.h,
-                            ),
-                            Container(
-                             
-                              height: 10.h,
-                              child: Text(
-                                  "Buraya kullanıcının yazdığı yazı gelecek.Buraya kullanıcının yazdığı yazı gelecek.Buraya kullanıcının yazdığı yazı gelecek.Buraya kullanıcının yazdığı yazı gelecek.Buraya kullanıcının yazdığı yazı gelecek.Buraya kullanıcının yazdığı yazı gelecek."),
-                            ),
-                            Container(
-                              height: 3.h,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                  color: Color(0xff181717),
-                                  borderRadius: BorderRadius.circular(5)),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(right: 4.w, left: 4.w),
+                            height: 5.h,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Color(0xff181717),
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Center(
                               child: Text(
                                 "Read More",
-                                textAlign: TextAlign.center,
+                                //textAlign: TextAlign.center,
                                 style: TextStyle(color: Colors.white),
                               ),
-                            )
-                          ],
-                        ),
+                            ),
+                          )
+                        ],
                       ),
                     );
                   },

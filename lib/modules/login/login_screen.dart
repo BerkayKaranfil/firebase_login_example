@@ -123,8 +123,8 @@ class LoginPage extends GetView<LoginController> {
                 ElevatedButton(
                   onPressed: () {
                     controller.auth.signInUser(controller.emailControl.text, controller.passwordControl.text);
-                    Get.to(() => HomeScreen(),
-                        transition: Transition.rightToLeftWithFade);
+                    /* Get.to(() => HomeScreen(),
+                        transition: Transition.rightToLeftWithFade); */
                   },
                   child: Text(
                     "Sign in",

@@ -120,11 +120,11 @@ class RegisterScreen extends GetView<RegisterController> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    controller.auth.createUser(
-                        controller.emailControl.text, controller.passwordControl.text);
+                    controller.auth.createUser(controller.emailControl.text,
+                        controller.passwordControl.text);
                     //controller.userEmail = controller.emailControl.text; Bu mantığı kullanarak if else oluşturup eğer boşsa get.dialog döndürebiliriz.
                     //Get.toNamed(Routes.LOGIN);
-                     /* Get.to(() => LoginPage(),
+                    /* Get.to(() => LoginPage(),
                         transition: Transition.rightToLeftWithFade);  */
                   },
                   child: Text(

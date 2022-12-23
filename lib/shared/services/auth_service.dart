@@ -19,24 +19,14 @@ class AuthService extends GetxService {
         email: girilenEmail,
         password: girilenPassword,
       );
-       Get.defaultDialog(
+      Get.defaultDialog(
           title: "Kullanıcı oluşturuldu.",
           confirm: ElevatedButton(
               onPressed: () {
                 Get.to(() => LoginPage(),
                     transition: Transition.rightToLeftWithFade);
               },
-              child: Text("Giriş yap"))); 
-      /* .whenComplete(() => Get.defaultDialog(
-                  title: "Kullanıcı oluşturuldu.",
-                  confirm: ElevatedButton(
-                      onPressed: () {
-                        Get.to(() => LoginPage(),
-                            transition: Transition.rightToLeftWithFade);
-                      },
-                      child: Text("Giriş yap"))) */
-      //Get.snackbar("Başarılı", "Kullanıcı oluşturuldu.")
-      //   );
+              child: Text("Giriş yap")));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         // print('The password provided is too weak.');

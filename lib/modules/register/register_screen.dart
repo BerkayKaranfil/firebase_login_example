@@ -12,7 +12,7 @@ class RegisterScreen extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.black,
+      //backgroundColor: Colors.black,
       body: Center(
         child: Container(
           margin: EdgeInsets.only(

@@ -14,8 +14,8 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Color.fromARGB(255, 170, 169, 245),
-      backgroundColor: Colors.black,
+      
+     // backgroundColor: Colors.black,
       resizeToAvoidBottomInset: false,
       body: Center(
         child: Container(

@@ -1,9 +1,12 @@
+import 'package:firebase_login_example/modules/home/home_controller.dart';
+import 'package:firebase_login_example/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends GetView<HomeController> {
   const HomeScreen({super.key});
 
   @override
@@ -12,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         backgroundColor: Color(0xffEFEFEF),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 7.5.w),
+          padding: EdgeInsets.symmetric(horizontal: 5.w),
           child: Column(
             children: [
               SizedBox(
@@ -147,8 +150,12 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
               ),
+              FloatingActionButton(onPressed: () {
+                Get.toNamed(Routes.BLOGCREATE);
+              },child: Icon(Icons.add),)
             ],
           ),
-        ));
+        ),
+        );
   }
 }

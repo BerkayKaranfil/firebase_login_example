@@ -5,4 +5,5 @@ abstract class Routes{
   static const SPLASH = '/splash';
   static const REGISTER = '/register';
   static const HOME = '/home';
+  static const BLOGCREATE = '/blogcreate';
 }

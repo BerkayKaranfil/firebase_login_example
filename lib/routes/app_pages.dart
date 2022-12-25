@@ -1,3 +1,5 @@
+import 'package:firebase_login_example/modules/blog_create/blog_create_binding.dart';
+import 'package:firebase_login_example/modules/blog_create/blog_create_screen.dart';
 import 'package:firebase_login_example/modules/home/home_screen.dart';
 import 'package:firebase_login_example/modules/login/login_binding.dart';
 import 'package:firebase_login_example/modules/login/login_screen.dart';
@@ -32,5 +34,9 @@ class AppPages {
         name: Routes.HOME,
         page: () => HomeScreen(),
         binding: RegisterBinding()),
+    GetPage(
+        name: Routes.BLOGCREATE,
+        page: () => BlogCreateScreen(),
+        binding: BlogCreateBinding()),
   ];
 }

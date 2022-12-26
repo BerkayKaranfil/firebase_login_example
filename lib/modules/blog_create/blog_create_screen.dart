@@ -1,4 +1,5 @@
 import 'package:firebase_login_example/modules/blog_create/blog_create_controller.dart';
+import 'package:firebase_login_example/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -60,6 +61,7 @@ class BlogCreateScreen extends GetView<BlogCreateController> {
                 onPressed: () {
                  // controller.db.addBlog(controller.topic.text, controller.content.text);
                   controller.db.writeBlog(controller.topic.text, controller.content.text);
+                  Get.toNamed(Routes.HOME);
                  // print(controller.content.text);
                  print(controller.topic.text);
                 },

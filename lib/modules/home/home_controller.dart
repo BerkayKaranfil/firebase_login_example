@@ -5,6 +5,6 @@ import '../../shared/services/firestore_service.dart';
 
 class HomeController extends GetxController{
   List<String> docIDs = []; 
-  
+  FirestoreService db = FirestoreService();
   
 }

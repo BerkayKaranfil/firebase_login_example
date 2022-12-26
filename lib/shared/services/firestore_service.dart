@@ -8,24 +8,20 @@ class FirestoreService extends GetxService {
     return this;
   }
 
-  writeBlog(topic, content){
-    Map<String, dynamic> blogData = {
-      "topic" : topic,
-      "content" : content
-    };
+// Veri yazma
+  writeBlog(topic, content) {
+    Map<String, dynamic> blogData = {"topic": topic, "content": content};
 
-    CollectionReference collectionReference = FirebaseFirestore.instance.collection("users");
+    CollectionReference collectionReference =
+        FirebaseFirestore.instance.collection("users");
     collectionReference.add(blogData);
   }
 
-  readBlog(){
-    
+// Veri okuma
+  Stream<QuerySnapshot> readBlog() {
+    var ref = FirebaseFirestore.instance.collection("users").snapshots();
+    return ref;
   }
-
-
-
-
-
 
   //HomeController idList = HomeController();
 

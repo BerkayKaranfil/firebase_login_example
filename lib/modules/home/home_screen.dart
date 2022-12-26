@@ -70,8 +70,97 @@ class HomeScreen extends GetView<HomeController> {
               height: 2.h,
             ),
             SizedBox(
-              height: 74.h,
-              child: ListView.builder(
+                height: 74.h,
+                child: StreamBuilder(
+                  stream: controller.db.readBlog(),
+                  builder: (context, snapshot) {
+                    return !snapshot.hasData
+                        ? CircularProgressIndicator()
+                        : ListView.builder(
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index) {
+                              DocumentSnapshot myBlog =
+                                  snapshot.data!.docs[index];
+                              return Container(
+                                margin: EdgeInsets.only(bottom: 3.h),
+                                height: 30.h,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 4.w, top: 2.h, right: 6.w),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            "${myBlog["topic"]}",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 2.h),
+                                          ),
+                                          SizedBox(
+                                            height: 1.h,
+                                          ),
+                                          Row(
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 2.h,
+                                              ),
+                                              SizedBox(
+                                                width: 2.w,
+                                              ),
+                                              Text("Kullanıcının ismi"),
+                                              SizedBox(
+                                                width: 10.w,
+                                              ),
+                                              Text("Jul 29, 2022"),
+                                            ],
+                                          ),
+                                          Divider(
+                                            thickness: 0.5.w,
+                                            color: Color(0xffC8C8C8),
+                                          ),
+                                          SizedBox(
+                                            height: 0.5.h,
+                                          ),
+                                          Container(
+                                            height: 10.h,
+                                            child: Text("${myBlog["content"]}"),
+                                          ),
+                                          SizedBox(
+                                            height: 2.h,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                          right: 4.w, left: 4.w),
+                                      height: 5.h,
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xff181717),
+                                          borderRadius:
+                                              BorderRadius.circular(5)),
+                                      child: Center(
+                                        child: Text(
+                                          "Read More",
+                                          //textAlign: TextAlign.center,
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                  },
+                )
+                /* ListView.builder(
                 itemCount: 3,
                 itemBuilder: (context, index) {
                   return Container(
@@ -148,8 +237,8 @@ class HomeScreen extends GetView<HomeController> {
                     ),
                   );
                 },
-              ),
-            ),
+              ), */
+                ),
             FloatingActionButton(
               onPressed: () {
                 Get.toNamed(Routes.BLOGCREATE);

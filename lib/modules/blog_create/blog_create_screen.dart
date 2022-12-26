@@ -58,7 +58,7 @@ class BlogCreateScreen extends GetView<BlogCreateController> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  controller.db.addBlog(controller.topic.text, controller.content.text);
+                 // controller.db.addBlog(controller.topic.text, controller.content.text);
              
                   print(controller.content.text);
                 },

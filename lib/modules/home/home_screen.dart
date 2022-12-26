@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_login_example/modules/home/home_controller.dart';
 import 'package:firebase_login_example/routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,7 @@ class HomeScreen extends GetView<HomeController> {
               height: 2.h,
             ),
             SizedBox(
-              height: 75.h,
+              height: 74.h,
               child: ListView.builder(
                 itemCount: 3,
                 itemBuilder: (context, index) {

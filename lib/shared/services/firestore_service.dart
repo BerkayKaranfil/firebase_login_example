@@ -8,16 +8,35 @@ class FirestoreService extends GetxService {
     return this;
   }
 
+  writeBlog(topic, content){
+    Map<String, dynamic> blogData = {
+      "topic" : topic,
+      "content" : content
+    };
+
+    CollectionReference collectionReference = FirebaseFirestore.instance.collection("users");
+    collectionReference.add(blogData);
+  }
+
+  readBlog(){
+    
+  }
+
+
+
+
+
+
   //HomeController idList = HomeController();
 
-  addBlog(String topic, String content ) async {
+  /* addBlog(String topic, String content ) async {
     Map<String, dynamic> kullaniciEkle = <String, dynamic> {};
     kullaniciEkle['topic'] = topic;
     kullaniciEkle['content'] = content;
      await FirebaseFirestore.instance
         .collection('users').add(kullaniciEkle);
        
-  }
+  } */
 
   /* getDocId()async{
     await FirebaseFirestore.instance.collection('users').get().then((value) => value.docs.forEach((document) {
@@ -26,10 +45,10 @@ class FirestoreService extends GetxService {
     }));
   } */
 
-  readBlog()async{
+  /* readBlog()async{
    var userBlogs = await FirebaseFirestore.instance.collection('users').get();
    //debugPrint(userBlogs.size.toString());
    //debugPrint(userBlogs.docs.length.toString());
-  }
+  } */
 
 }

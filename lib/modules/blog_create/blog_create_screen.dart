@@ -28,6 +28,7 @@ class BlogCreateScreen extends GetView<BlogCreateController> {
               height: 5.h,
             ),
             TextFormField(
+              controller: controller.topic,
               decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
@@ -41,6 +42,7 @@ class BlogCreateScreen extends GetView<BlogCreateController> {
               height: 5.h,
             ),
             TextFormField(
+              controller: controller.content,
               maxLines: 20,
               decoration: InputDecoration(
                   filled: true,
@@ -55,7 +57,11 @@ class BlogCreateScreen extends GetView<BlogCreateController> {
               height: 2.h,
             ),
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.db.addBlog(controller.topic.text, controller.content.text);
+             
+                  print(controller.content.text);
+                },
                 child: Text(
                   "Post",
                   style: TextStyle(fontSize: 3.h),

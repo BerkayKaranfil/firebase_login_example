@@ -23,6 +23,11 @@ class FirestoreService extends GetxService {
     return ref;
   }
 
+// Veri silme
+  void deleteBlog(id){
+    FirebaseFirestore.instance.collection("users").doc(id).delete();
+  }
+
   //HomeController idList = HomeController();
 
   /* addBlog(String topic, String content ) async {

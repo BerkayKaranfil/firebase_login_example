@@ -95,11 +95,45 @@ class HomeScreen extends GetView<HomeController> {
                                           left: 4.w, top: 2.h, right: 6.w),
                                       child: Column(
                                         children: [
-                                          Text(
-                                            "${myBlog["topic"]}",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 2.h),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                "${myBlog["topic"]}",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 2.h),
+                                              ),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Get.defaultDialog(
+                                                    content: Text("Silmek istediğine emin misin?"),
+                                                    confirm: GestureDetector(
+                                                      onTap: () {
+                                                        print("Silindi.");
+                                                      },
+                                                      child: Text("yes")),
+                                                    cancel: Text("no")
+                                                  );
+                                                },
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    controller.db.deleteBlog(snapshot.data!.docs[index].id);
+                                                  },
+                                                  child: Container(
+                                                    height: 2.h,
+                                                    width: 5.w,
+                                                    decoration: BoxDecoration(),
+                                                    child: Text(
+                                                      "Sil",
+                                                      style: TextStyle(
+                                                          color: Colors.red),
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                            ],
                                           ),
                                           SizedBox(
                                             height: 1.h,

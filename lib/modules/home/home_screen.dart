@@ -107,29 +107,18 @@ class HomeScreen extends GetView<HomeController> {
                                               ),
                                               GestureDetector(
                                                 onTap: () {
-                                                  Get.defaultDialog(
-                                                    content: Text("Silmek istediğine emin misin?"),
-                                                    confirm: GestureDetector(
-                                                      onTap: () {
-                                                        print("Silindi.");
-                                                      },
-                                                      child: Text("yes")),
-                                                    cancel: Text("no")
-                                                  );
+                                                  controller.db.deleteBlog(
+                                                      snapshot.data!.docs[index]
+                                                          .id);
                                                 },
-                                                child: GestureDetector(
-                                                  onTap: () {
-                                                    controller.db.deleteBlog(snapshot.data!.docs[index].id);
-                                                  },
-                                                  child: Container(
-                                                    height: 2.h,
-                                                    width: 5.w,
-                                                    decoration: BoxDecoration(),
-                                                    child: Text(
-                                                      "Sil",
-                                                      style: TextStyle(
-                                                          color: Colors.red),
-                                                    ),
+                                                child: Container(
+                                                  height: 2.h,
+                                                  width: 5.w,
+                                                  decoration: BoxDecoration(),
+                                                  child: Text(
+                                                    "Sil",
+                                                    style: TextStyle(
+                                                        color: Colors.red),
                                                   ),
                                                 ),
                                               )

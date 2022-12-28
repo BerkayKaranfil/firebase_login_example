@@ -8,6 +8,8 @@ import 'package:firebase_login_example/modules/login/login_binding.dart';
 import 'package:firebase_login_example/modules/login/login_screen.dart';
 import 'package:firebase_login_example/modules/register/register_binding.dart';
 import 'package:firebase_login_example/modules/register/register_screen.dart';
+import 'package:firebase_login_example/modules/update_blog/update_blog_binding.dart';
+import 'package:firebase_login_example/modules/update_blog/update_blog_screen.dart';
 import 'package:get/get.dart';
 
 import '../modules/splash/splash_binding.dart';
@@ -45,5 +47,9 @@ class AppPages {
         name: Routes.BLOG,
         page: () => BlogScreen(),
         binding: BlogBinding()),
+    GetPage(
+        name: Routes.BLOGUPDATE,
+        page: () => UpdateBlogScreen(),
+        binding: UpdateBlogBinding()),
   ];
 }

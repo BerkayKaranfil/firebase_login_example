@@ -96,8 +96,7 @@ class HomeScreen extends GetView<HomeController> {
                                       child: Column(
                                         children: [
                                           Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                                             children: [
                                               Text(
                                                 "${myBlog["topic"]}",
@@ -119,6 +118,21 @@ class HomeScreen extends GetView<HomeController> {
                                                     "Sil",
                                                     style: TextStyle(
                                                         color: Colors.red),
+                                                  ),
+                                                ),
+                                              ),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Get.toNamed(Routes.BLOGUPDATE);
+                                                },
+                                                child: Container(
+                                                  height: 2.h,
+                                                  width: 14.w,
+                                                  decoration: BoxDecoration(),
+                                                  child: Text(
+                                                    "Güncelle",
+                                                    style: TextStyle(
+                                                        color: Colors.green),
                                                   ),
                                                 ),
                                               )

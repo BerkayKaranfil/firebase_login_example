@@ -123,7 +123,7 @@ class HomeScreen extends GetView<HomeController> {
                                               ),
                                               GestureDetector(
                                                 onTap: () {
-                                                  controller.document_id = snapshot.data!.docs[index].id;
+                                               //   controller.document_id = snapshot.data!.docs[index].id;
                                                   // print(controller.document_id);
                                                   controller.updateBlogController.document_id = snapshot.data!.docs[index].id;
                                                   // print(controller.updateBlogController.document_id);

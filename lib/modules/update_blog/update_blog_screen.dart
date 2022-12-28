@@ -45,6 +45,7 @@ class UpdateBlogScreen extends GetView<UpdateBlogController> {
           ),
           ElevatedButton(onPressed: () {
             controller.db.updateBlog(controller.document_id, controller.updateTopic.text, controller.updateContent.text);
+            Get.back();
           }, child: Text('Guncelle'))
         ],
       ),

@@ -32,6 +32,7 @@ class FirestoreService extends GetxService {
   void updateBlog(id, updateTopic, updateContent) {
     var updating = FirebaseFirestore.instance.collection("users").doc(id);
     updating.update({"topic": updateTopic, "content": updateContent});
+    Get.back();
   }
 
   //HomeController idList = HomeController();

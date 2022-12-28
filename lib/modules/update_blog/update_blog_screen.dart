@@ -18,7 +18,8 @@ class UpdateBlogScreen extends GetView<UpdateBlogController> {
             height: 5.h,
           ),
           TextFormField(
-            // controller: controller.topic,
+            
+            controller: controller.updateTopic,
             decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
@@ -32,7 +33,7 @@ class UpdateBlogScreen extends GetView<UpdateBlogController> {
             height: 2.h,
           ),
           TextFormField(
-            // controller: controller.topic,
+            controller: controller.updateContent,
             decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
@@ -42,6 +43,9 @@ class UpdateBlogScreen extends GetView<UpdateBlogController> {
                 enabledBorder: OutlineInputBorder(),
                 focusedBorder: OutlineInputBorder()),
           ),
+          ElevatedButton(onPressed: () {
+            controller.db.updateBlog(controller.document_id, controller.updateTopic.text, controller.updateContent.text);
+          }, child: Text('Guncelle'))
         ],
       ),
     );

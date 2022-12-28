@@ -68,7 +68,11 @@ class BlogCreateScreen extends GetView<BlogCreateController> {
                 child: Text(
                   "Post",
                   style: TextStyle(fontSize: 3.h),
-                ))
+                )),
+
+                ElevatedButton(onPressed: () {
+                  controller.analyticsService.logEvent();
+                }, child: Text("analytics"))
           ],
         ),
       ),

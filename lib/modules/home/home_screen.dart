@@ -70,7 +70,7 @@ class HomeScreen extends GetView<HomeController> {
               height: 2.h,
             ),
             SizedBox(
-                height: 74.h,
+                height: 75.h,
                 child: StreamBuilder(
                   stream: controller.db.readBlog(),
                   builder: (context, snapshot) {
@@ -96,7 +96,8 @@ class HomeScreen extends GetView<HomeController> {
                                       child: Column(
                                         children: [
                                           Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
                                             children: [
                                               Text(
                                                 "${myBlog["topic"]}",
@@ -123,11 +124,16 @@ class HomeScreen extends GetView<HomeController> {
                                               ),
                                               GestureDetector(
                                                 onTap: () {
-                                               //   controller.document_id = snapshot.data!.docs[index].id;
+                                                  //   controller.document_id = snapshot.data!.docs[index].id;
                                                   // print(controller.document_id);
-                                                  controller.updateBlogController.document_id = snapshot.data!.docs[index].id;
+                                                  controller
+                                                          .updateBlogController
+                                                          .document_id =
+                                                      snapshot
+                                                          .data!.docs[index].id;
                                                   // print(controller.updateBlogController.document_id);
-                                                  Get.toNamed(Routes.BLOGUPDATE);
+                                                  Get.toNamed(
+                                                      Routes.BLOGUPDATE);
                                                 },
                                                 child: Container(
                                                   height: 2.h,
@@ -148,7 +154,8 @@ class HomeScreen extends GetView<HomeController> {
                                           Row(
                                             children: [
                                               CircleAvatar(
-                                                radius: 2.h,
+                                                radius: 3.5.h,
+                                                child: Image.network("https://muhiku.com/wp-content/uploads/2021/04/bardak-altligi-3.jpg"),
                                               ),
                                               SizedBox(
                                                 width: 2.w,
@@ -168,7 +175,7 @@ class HomeScreen extends GetView<HomeController> {
                                             height: 0.5.h,
                                           ),
                                           Container(
-                                            height: 10.h,
+                                            height: 7.h,
                                             child: Text("${myBlog["content"]}"),
                                           ),
                                           SizedBox(
@@ -280,15 +287,38 @@ class HomeScreen extends GetView<HomeController> {
                 },
               ), */
                 ),
-            FloatingActionButton(
+            /* FloatingActionButton(
               onPressed: () {
                 Get.toNamed(Routes.BLOGCREATE);
               },
               child: Icon(Icons.add),
-            )
+            ), */
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5.w)
+        ),
+        onPressed: () {
+          Get.toNamed(Routes.BLOGCREATE);
+        },
+        child: Icon(Icons.add),
+      ),
+      bottomNavigationBar: Obx(()=>BottomNavigationBar(
+       
+      currentIndex: controller.bottomSelectedIndex.value,
+      onTap: (index) {
+        controller.changedSelectedIndex(index);
+      },
+      selectedItemColor: controller.changedColor(),
+        items: [
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        BottomNavigationBarItem(icon: Icon(Icons.save), label: "Records")
+      ]),)
+      
     );
   }
 }
